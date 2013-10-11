@@ -1,0 +1,718 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>Smoothed Seasonally Adjusted Metropolitan Area Estimates</title>
+<!-- ****************************************** Begin META TAGS ********************************************* -->
+	<!-- START include/global/head.stm -->
+	<script type="text/javascript" >var fsr$ip = '136.152.23.25';</script>
+	<script src="/javascripts/urchin.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		urchinTracker();
+	</script>
+	<script type="text/javascript" src="/javascripts/jquery-min.js"></script>
+	<script type="text/javascript" src="/javascripts/bls.js"></script>
+	<script type="text/javascript" src="/foresee/foresee-trigger.js"></script>
+	<style type="text/css">
+	<!--
+	@import url("/stylesheets/bls_combined.css");
+	@import url("/stylesheets/bls_content.css");
+	@import url("/stylesheets/bls_tables.css");
+	@import url("/stylesheets/jquery-tools.css");
+	@import url("/stylesheets/bls_nr.css");
+	-->
+	</style>
+    <!--[if lt IE 9]>
+		<link href="/stylesheets/ie8-styles.css" media="all" rel="Stylesheet" type="text/css"> 
+	<![endif]-->
+	<!--[if lt IE 8]>
+		<link href="/stylesheets/ie7-styles.css" media="all" rel="Stylesheet" type="text/css"> 
+	<![endif]-->
+	<!--[if lt IE 7]>
+		<link href="/stylesheets/ie6-styles.css" media="all" rel="Stylesheet" type="text/css"> 
+		<style type="text/css">
+		body {
+			behavior:url(/stylesheets/csshover2.htc);
+		}
+		</style>			
+	<![endif]-->
+	<!--[if IE]>
+		<style type="text/css">
+		body {
+			font-size: expression(1 / (screen.deviceXDPI / 96) * 84 + '%');
+		}
+		</style>	
+	<![endif]-->
+    <meta property="og:image" content="http://www.bls.gov/images/bls_emblem.png"/>
+	<!-- END include/global/head.stm -->
+	
+	<meta http-equiv="Content-Script-Type" content="type">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta http-equiv="content-language" content="en">
+	<meta name="agency" content="BLS">
+	<meta name="audience" content="general">
+
+<meta name="subagency" content="BLS: Employment and Unemployment">
+<meta name="program" content="BLS: Employment and Unemployment: Local Area Unemployment Statistics">
+<meta name="subject" content="Statistics: By geographical coverage: State, Statistics: By geographical coverage: Sub-state (County/MSA/City), Statistics: Employment and Unemployment">
+<meta name="date" content="05/30/2012">
+<!-- ****************************************** End META TAGS *********************************************** -->
+</head>
+<body>
+<!-- ****************************************** Begin HEADER ************************************************ -->
+	<!--no_index_start-->
+<!-- DOL BANNER BEGIN -->
+<!-- DOL BANNER START -->
+		<a class="skiplink" href="#startcontent">Skip to Content</a>
+		<div id="dol-bar">
+			<div id="dol-bar-content">
+				<div id="dol-bar-emblem">
+					<h3><a href="http://www.dol.gov/">US Department of Labor</a></h3>
+				</div>
+				<form id="dol-bar-form" name="subsform" action="https://subscriptions.bls.gov/accounts/USDOLBLS/subscriber/qualify" method="get">
+				<div id="dol-bar-right">
+					<a href="/bls/topicsaz.htm">A to Z Index</a> &nbsp;|&nbsp;
+					<a href="/dolfaq/blsfaqtoc.htm">FAQs</a> &nbsp;|&nbsp;
+					<a href="/bls/infohome.htm">About BLS</a> &nbsp;|&nbsp;
+					<a href="/bls/contact.htm">Contact Us</a> &nbsp; &nbsp;
+					<label for="dol-bar-email" style="display: none;">E-mail:</label>
+					<input id="dol-bar-email" name="email" type="text" onclick="this.value=''; this.onclick = null;" value="Subscribe to E-mail Updates" title="Enter your email address to subscribe to updates" size="32">
+					<input id="dol-bar-subscribe" type="image" src="/images/buttons/subscribe_button_red_on_red.png"  alt="Submit">	
+				</div>
+				</form>
+				<div class="clearfloat"></div>
+			</div>
+		</div>
+<!-- DOL BANNER END -->
+
+<!-- DOL BANNER END -->
+<!-- BLS BANNER BEGIN -->
+<!-- BLS BANNER START -->
+<div id="top"></div>
+<div id="bls-banner-wrapper">
+  <div id="bls-banner">
+    <div id="bls-banner-emblem">
+      <h2><a href="/home.htm">U.S. Bureau of Labor Statistics</a></h2>
+    </div>
+    <div id="bls-banner-right">
+      <div id="bls-banner-links"><span class="social-follow"><a title="Follow BLS on Twitter" target="_blank" href="http://twitter.com/BLS_gov">Follow Us</a> </span><span class="social-follow-links"> 
+        <!-- <img src="/images/icons/facebook.png"/>--> 
+        <a target="_blank" href="http://twitter.com/BLS_gov"><img alt="Follow BLS on Twitter" src="/images/icons/twitter_bird_icon_white.png"/></a> 
+        <!--<img src="/images/icons/linkedin.png"/>--> 
+        </span> | <a href="/newsroom/" class="first">What's New</a> | <a href="/schedule/news_release/">Release Calendar</a> | <a href="/bls/sitemap.htm">Site&nbsp;Map</a></div>
+      <div id="bls-banner-search">
+        <form method="get" action="/search/query">
+          <input name="query" type="text" id="bls-banner-search-input" value="Search BLS.gov" title="Search Input" onclick="this.value=''; this.onclick = null;">
+          <input type="image" src="/images/buttons/search_button_red_on_red.png" name="term" id="bls-banner-search-submit" alt="Search" title="Submit">
+        </form>
+      </div>
+    </div>
+    <div class="clearfloat"></div>
+  </div>
+</div>
+<!-- BLS BANNER END --> 
+
+
+<!-- BLS BANNER END -->
+<!-- MAIN NAV BEGIN -->
+<div id="main-nav-wrapper">
+	<div id="main-nav-container">
+		<div>
+						<ul id="main-nav" class="nojs">
+				<li class="submenu-home"><a href="/home.htm" style="padding-left: 1em;">Home</a>
+
+<!-- ********************************************** Begin Home Tab LIST ****************************************** -->
+<!-- 1st column -->
+<div class="sub" id="submenu-home">
+   <ul>
+      <li><h5><a href="#">SUBJECT AREAS &#187;</a></h5></li>
+      <li><a href="/bls/inflation.htm">Inflation &amp; Prices</a></li>
+      <li><a href="/bls/spending.htm">Spending &amp; Time Use</a></li>
+      <li><a href="/bls/unemployment.htm">Unemployment</a></li>
+      <li><a href="/bls/employment.htm">Employment</a></li>
+      <li><a href="/bls/wages.htm">Pay &amp; Benefits</a></li>
+      <li><a href="/bls/productivity.htm">Productivity</a></li>      
+      <li><a href="/iif/">Workplace Injuries</a></li>
+      <li><a href="/bls/international.htm">International</a></li>    
+      <li>&nbsp;</li> 
+      <li><a href="/bls/demographics.htm">Demographics</a></li>
+	  <li><a href="/bls/industry.htm">Industries</a></li> 
+      <li><a href="/bls/business.htm">Business Costs</a></li>
+      <li><a href="/bls/occupation.htm">Occupations</a></li>
+      <li><a href="/bls/geography.htm">Geography</a></li>
+  </ul>	  	
+        
+<!-- 2nd column -->
+
+  <ul> 
+  		<li><h5><a href="#">Resources For &#187;</a></h5></li>
+        <li><a href="/audience/business.htm">Business Leaders</a></li>
+        <li><a href="/audience/consumers.htm">Consumers</a></li>
+        <li><a href="/developers/home.htm">Developers</a></li>
+        <li><a href="/audience/economists.htm">Economists</a></li>
+        <li><a href="/audience/investors.htm">Investors</a></li>
+        <li><a href="/audience/jobseekers.htm">Jobseekers</a></li>
+        <li><a href="/newsroom/home.htm">Media</a></li>
+        <li><a href="/audience/policy.htm">Public Policymakers</a></li>
+        <li><a href="/audience/students.htm">Students &amp; Teachers</a></li>
+        <li><a href="/respondents/home.htm">Survey Respondents</a></li>
+        
+        <li>&nbsp;</li> 
+        <li><h5><a href="#">At a Glance Tables &#187;</a></h5></li>
+        <li><a href="/eag/eag.us.htm">U.S. Economy</a></li>
+        <li><a href="/eag/">Regions, States, &amp; Areas</a></li>
+        <li><a href="/iag/home.htm">Industries</a></li>
+        <li><a href="/fls/country.htm">International</a></li>
+    </ul>
+
+<!-- 3rd column -->
+
+  <ul> 
+  		<li><h5><a href="#">MORE &#187;</a></h5></li>
+		<li><a href="/bls/announcement.htm">Announcements</a></li>
+		<li><a href="/bls/commissionerscorner.htm">Commissioner's Corner</a></li>
+		<li><a href="/green/home.htm">Green Jobs</a></li>
+		<li><a href="/bls/research.htm">Research</a></li>
+		<li><a href="/spotlight/">Spotlight on Statistics</a></li>
+		<li><a href="/k12/">Kids' Page</a></li>      
+        <li><a href="/bls/erratabydate.htm">Errata</a></li>    
+        <li><a href="/bls/other.htm">Other Statistical Sites</a></li>  
+    </ul>
+            
+</div>
+<!-- ***********************************************End Home Tab LIST ******************************************** -->
+
+				</li>
+				
+                <li class="submenu selected"><a href="/bls/proghome.htm">Subject Areas</a>
+<!-- ************************************* Begin SUBJECT AREAS list ****************************************** -->
+<!-- 1st column -->
+
+<div class="sub" id="submenu-programs">
+  <ul>
+    <li>
+      <h5><a href="/bls/inflation.htm">Inflation &amp; Prices &#187;</a></h5>
+    </li>
+    <li><a href="/cpi/">Consumer Price Index</a></li>
+    <li><a href="/ppi/">Producer Price Indexes</a></li>
+    <li><a href="/mxp/">Import/Export Price Indexes</a></li>
+    <li><a href="/ncs/ect/">Employment Cost Index</a></li>
+    <li><a href="/bls/escalation.htm">Contract Escalation</a></li>
+    <li><a href="/pir/">Price Index Research</a></li>
+    <li><a href="/bls/inflation.htm">Inflation &amp; Prices Overview</a></li>
+    <li>&nbsp;</li>
+    <li>
+      <h5><a href="/bls/wages.htm">Pay &amp; Benefits &#187;</a></h5>
+    </li>
+    <li><a href="/ncs/ect/">Employment Costs</a></li>
+    <li><a href="/ncs/">National Compensation Data</a></li>
+    <li><a href="/bls/blswage.htm">Wages by Area &amp; Occupation</a></li>
+    <li><a href="/cps/earnings.htm#demographics">Earnings by Demographics</a></li>
+    <li><a href="/ces/">Earnings by Industry</a></li>
+    <li><a href="/cew/">County Wages</a></li>
+    <li><a href="/ncs/ebs/">Benefits</a></li>
+    <li><a href="/crp/">Compensation Research</a></li>
+    <li><a href="/wsp/">Strikes &amp; Lockouts </a></li>
+    <li><a href="/bls/wages.htm">Pay &amp; Benefits Overview</a></li>
+    <li>&nbsp;</li>
+    <li>
+      <h5><a href="/bls/spending.htm">Spending &amp; Time Use &#187;</a></h5>
+    </li>
+    <li><a href="/cex/">Consumer Expenditures </a></li>
+    <li><a href="/tus/">How Americans Spend Time</a></li>
+  </ul>
+  <!-- 2nd column -->
+  <ul>
+    <li>
+      <h5><a href="/bls/unemployment.htm">Unemployment &#187;</a></h5>
+    </li>
+    <li><a href="/cps/">National Unemployment Rate </a> </li>
+    <li><a href="/lau/">State &amp; Local Unemployment Rates </a> </li>
+    <li><a href="/mls/">Mass Layoffs </a> </li>
+    <li><a href="/ers/">Unemployment Research</a></li>
+    <li><a href="/bls/unemployment.htm">Unemployment Overview</a></li>
+    <li>&nbsp;</li>
+    <li>
+      <h5><a href="/bls/employment.htm">Employment &#187;</a></h5>
+    </li>
+    <li><a href="/ces/">National Employment </a></li>
+    <li><a href="/sae/">State &amp; Local Employment </a></li>
+    <li><a href="/cew/">State &amp; County Employment </a></li>
+    <li><a href="/cps/">Worker Characteristics </a></li>
+    <li><a href="/emp/">Employment Projections </a></li>
+    <li><a href="/jlt/">Job Openings &amp; Labor Turnover </a></li>
+    <li><a href="/ggs/">Green Goods and Services</a></li>
+    <li><a href="/ggsocc/">Green Goods and Services Occupations</a></li>
+    <li><a href="/gtp/">Green Technologies and Practices</a></li>
+    <li><a href="/oes/">Employment by Occupation </a></li>
+    <li><a href="/nls/">Work Experience Over Time </a></li>
+    <li><a href="/bdm/">Business Employment Dynamics </a></li>
+    <li><a href="/ers/">Employment Research</a></li>
+    <li><a href="/bls/employment.htm">Employment Overview</a></li>
+    <li>&nbsp;</li>
+    <li>
+      <h5><a href="/iif/">Workplace Injuries &#187;</a></h5>
+    </li>
+  </ul>
+  
+  <!-- 3rd column -->
+  
+  <ul>
+    <li>
+      <h5><a href="/bls/productivity.htm">Productivity &#187;</a></h5>
+    </li>
+    <li><a href="/lpc/"> Labor Productivity &amp; Costs</a></li>
+    <li><a href="/mfp/">Multifactor Productivity</a></li>
+    <li><a href="/dpr/">Productivity Research</a></li>
+    <li><a href="/bls/productivity.htm">Productivity Overview</a></li>
+    <li>&nbsp;</li>
+    <li>
+      <h5><a href="/bls/international.htm">International &#187;</a></h5>
+    </li>
+    <li><a href="/fls/">International Labor Comparisons</a></li>
+    <li><a href="/itc/">International Technical Cooperation</a></li>
+    <li><a href="/mxp/">Import/Export Price Indexes</a></li>
+    <li><a href="/bls/international.htm">International Overview</a></li>
+    <li>&nbsp;</li>
+    <li>
+      <h5><a href="/bls/regnhome.htm">REGIONAL OFFICES &#187;</a></h5>
+    </li>
+    <li><a href="/ro1/">New England (Boston)</a></li>
+    <li><a href="/ro2/">New York-New Jersey (NY City)</a></li>
+    <li><a href="/ro3/">Mid-Atlantic (Philadelphia)</a></li>
+    <li><a href="/ro4/">Southeast (Atlanta)</a></li>
+    <li><a href="/ro5/">Midwest (Chicago)</a></li>
+    <li><a href="/ro6/">Southwest (Dallas)</a></li>
+    <li><a href="/ro7/">Mountain-Plains (Kansas City)</a></li>
+    <li><a href="/ro9/">West (San Francisco)</a></li>
+    <li><a href="/bls/regnhome.htm">Regional Overview</a></li>
+  </ul>
+</div>
+<!-- **************************************End SUBJECT AREAS ******************************************** --> 
+
+				</li>
+                
+                
+				<li class="submenu"><a href="/data/">Databases &amp; Tools</a>
+
+<!-- ******************************************** Begin DATABASES and TOOLS LIST ****************************************** -->
+<div class="sub" id="submenu-data">
+    <ul>
+        <li><h5><a href="/data/">Data Retrieval Tools &#187;</a></h5></li>
+        <li><a href="/cgi-bin/surveymost?bls">Top Picks</a></li>
+        <li><a href="/cgi-bin/srgate">Series Report</a></li>
+        <li><a href="/data/">One Screen</a></li>
+        <li><a href="/data/">Multi-Screen</a></li>
+        <li><a href="/data/#maps">Maps </a></li>
+        <li><a href="/data/#calculators">Calculators </a></li>
+        <li>&nbsp;</li>
+  </ul>
+
+<!-- 2nd column -->
+
+  <ul>
+        <li><h5><a href="#">CUSTOMIZED TABLES &#187;</a></h5></li>
+        <li><a href="ftp://ftp.bls.gov/pub/time.series/">Text Files</a></li>
+        <li><a href="/data/#historical-tables">News Release Tables</a></li>
+        <li>&nbsp;</li>
+        <li><h5><a href="/bls/moredata.htm">More Sources of Data &#187;</a></h5></li>
+        <li><a href="/data/archived.htm">Discontinued Databases </a></li>
+        <li><a href="/help/hlpform1.htm">FAQs</a></li>
+        <li><a href="/help/notice.htm">Special Notices </a></li>
+        <li><a href="/bls/moredata.htm">More Sources of Data</a></li>
+    </ul>
+</div>
+<!-- *********************************************End DATABASES and TOOLS LIST ******************************************** -->
+
+				</li>
+                
+                
+				<li class="submenu"><a href="/opub/">Publications</a>
+<!-- ********************************************** Begin PUBLICATIONS LIST ****************************************** -->
+
+<div class="sub" id="submenu-pubs">
+  <ul>
+    <li>
+      <h5><a href="/opub/#latest">Latest Publications &#187;</a></h5>
+    </li>
+    <li><a href="/opub/ted/">The Editor&#8217;s Desk</a></li>
+    <li><a href="/opub/mlr/">Monthly Labor Review</a></li>
+    <li><a href="/opub/btn/">Beyond the Numbers</a></li>
+    <li><a href="/nls/nlsnews.htm">National Longitudinal Surveys News</a></li>
+    <li><a href="/spotlight/">Spotlight on Statistics</a></li>
+    <li><a href="/ooh/">Occupational Outlook Handbook</a></li>
+    <li><a href="/opub/ooq/">Occupational Outlook Quarterly</a></li>
+  </ul>
+  
+  <!-- 2nd column -->
+  
+  <ul>
+    <li>&nbsp;</li>
+    <li>&nbsp;</li>
+    <li><a href="/opub/#magazines">Magazines &amp; Journals </a></li>
+    <li><a href="/opub/#chartbooks">Chartbooks</a></li>
+    <li><a href="/opub/#bulletins">Bulletins &amp; Reports </a></li>
+    <li><a href="/opub/#catalog">Catalog of Publications </a></li>
+    <li><a href="/opub/#research">Research Papers </a></li>
+    <li><a href="/opub/#copyright">Copyright Information </a></li>
+    <li><a href="/opub/#contact">Contact &amp; Help </a></li>
+  </ul>
+</div>
+<!-- ***********************************************End PUBLICATIONS LIST ******************************************** --> 
+
+				</li>
+				
+                
+                <li class="submenu"><a href="/bls/newsrels.htm">Economic Releases</a>
+
+<!-- ********************************************** Begin ECONOMIC RELEASES LIST ****************************************** -->
+<!-- 1st column -->
+<div class="sub" id="submenu-news">
+   <ul>
+       <li><h5><a href="/bls/newsrels.htm#latest-releases">Latest Releases &#187;</a></h5></li>   
+       <li>&nbsp;</li>
+       <li><h5><a href="/bls/newsrels.htm#major">Major Economic Indicators &#187;</a></h5></li>   
+       <li>&nbsp;</li>
+       <li><h5><a href="/schedule/news_release/">Schedules for news Releases &#187;</a></h5></li>
+       <li><a href="/schedule/">By Month</a></li>
+       <li><a href="/schedule/schedule/by_prog/all_sched.htm">By News Release</a></li>
+       <li><a href="/schedule/news_release/current_year.asp">Current Year</a></li>
+       <li><a href="/bls/archived_sched.htm">Prior Years</a></li>
+	   <li>&nbsp;</li>         
+       <li><h5><a href="/schedule/archives/all_nr.htm">Archived News Releases &#187;</a></h5></li>
+ </ul>	  	
+        
+<!-- 2nd column -->
+
+  <ul>    
+     <li>
+      <h5><a href="/bls/newsrels.htm#OEUS">Employment &amp; Unemployment &#187;</a></h5></li>
+        <li><a href="/bls/newsrels.htm#OEUS">Monthly</a></li> 
+        <li><a href="/bls/newsrels.htm#OEUS">Quarterly, annual, and other</a></li>
+        <li>&nbsp;</li>  
+        <li><h5><a href="/bls/newsrels.htm#OPLC">Inflation &amp; Prices &#187;</a></h5></li>
+        <li>&nbsp;</li>  
+        <li><h5><a href="/bls/newsrels.htm#OCWC">Pay &amp; Benefits &amp; Workplace Injuries &#187;</a></h5></li>
+        <li>&nbsp;</li> 
+      <li><h5><a href="/bls/newsrels.htm#OPT">Productivity &amp; Technology &#187;</a></h5></li>
+      <li>&nbsp;</li>  
+      <li><h5><a href="/bls/newsrels.htm#OEP">Employment Projections &#187;</a></h5></li>       
+      <li>&nbsp;</li>   
+      <li><h5><a href="/bls/newsrels.htm#INT">International Programs &#187;</a></h5></li>
+      <li>&nbsp;</li>         
+      <li><h5><a href="/bls/newsrels.htm#NEWS">Regional News Releases &#187;</a></h5></li>
+  </ul>
+</div>
+
+				</li>
+				
+                
+                <li class="submenu"><a href="http://beta.bls.gov">Beta</a>
+<!-- ***********************************************Start BETA LIST ******************************************** -->
+
+<div class="sub" id="submenu-beta">
+  <ul>
+    <li>
+      <h5><a href="/bls/discontinuation_ftp.htm">DISCONTINUANCE OF<br />
+        ANONYMOUS FTP SERVICE &#187;</a></h5>
+    </li>
+    <li>
+      <h5><a href="/developers/">DATA API &#187;</a></h5>
+    </li>
+    <li>
+      <h5><a href="/bls/k12_prototype.htm">K-12 REDESIGN &#187;</a></h5>
+    </li>
+    <li>
+      <h5><a href="/cex/cex_education_beta_lab.htm">CONSUMER SPENDING <br />
+        BY EDUCATION &#187;</a></h5>
+    </li>
+    <li>
+      <h5><a href="http://beta.bls.gov/dataQuery/">DATA FINDER &#187;</a></h5>
+    </li>
+    <li>
+      <h5><a href="http://beta.bls.gov/maps/cew/us">STATE AND COUNTY MAP &#187;</a></h5>
+    </li>
+  </ul>
+</div>
+<!-- ***********************************************End BETA LIST ******************************************** --> 
+						
+				</li>
+			</ul>
+		</div>
+		<div class="clearfloat"></div>
+	</div>
+</div>
+
+<!-- MAIN NAV END -->
+
+<!-- WRAPPER TOP BEGIN -->
+	<div id="wrapper-outer">
+		<div id="wrapper">
+			<div id="container">
+<!-- WRAPPER TOP END -->
+<!-- SUBDOMAIN TITLE TOP BEGIN -->
+				<div id="subdomain-title">
+					<h1>
+					
+<!-- SUBDOMAIN TITLE TOP END -->
+<!-- SUBDOMAIN TITLE BEGIN -->
+<!--no_index_end-->
+Local Area Unemployment Statistics
+<!--no_index_start-->
+<!-- SUBDOMAIN TITLE END -->
+<!-- SUBDOMAIN TITLE MIDDLE BEGIN -->
+		</h1>
+		<div class="article-tools-box" style="margin-left: 4px;">
+			<div id="fontpopup">
+			FONT SIZE:<a style="cursor: pointer;" class="fontminus" onMouseOver="this.style.cursor='pointer'" onFocus="this.blur();" onClick="bls_chsize('minus');"><img src="/images/icons/icon_small_minus.gif" alt="Minus Font Size" width="16" height="16"></a><a style="cursor: pointer;" class="fontplus" onMouseOver="this.style.cursor='pointer'" onFocus="this.blur();" onClick="bls_chsize('plus');"><img src="/images/icons/icon_small_plus.gif" alt="Plus Font Size" width="16" height="16"></a>		
+			<a href="http://data.bls.gov/cgi-bin/print.pl/lau/metrossa.htm">PRINT:</a> <a href="http://data.bls.gov/cgi-bin/print.pl/lau/metrossa.htm"><img src="/images/icons/icon_small_printer.gif" alt="Print" width="16" height="16"></a>
+			</div>
+		</div>
+
+<!-- SUBDOMAIN TITLE MIDDLE END -->
+
+			<div class="article-tools-box"><a href="#TB_inline?height=200&amp;width=325&amp;inlineId=lau_program_links" class="thickbox">LAU <img src="/images/icons/icon_small_link.gif" alt="LAU Program Links"></a></div>
+			<div id="lau_program_links" style="display: none;">
+				<h2>Local Area Unemployment Statistics</h2>
+				<ul>
+					<li><a href="/lau/">LAU Homepage</a></li>
+					<li><a href="/lau/lauov.htm">LAU Overview</a></li>
+					<li><a href="/lau/laufaq.htm">LAU FAQ</a></li>
+					<li><a href="/lau/laucont.htm">Contact LAU</a></li>
+				</ul>
+			</div>
+	
+<!-- SUBDOMAIN TITLE BOTTOM BEGIN -->
+
+	<div class="article-tools-box" style="margin-right: 4px;" >
+       <span class="social-media">
+            SHARE ON:
+           <a href="javascript:void(0);" class="share_facebook"><img alt="share on facebook" src="/images/icons/facebook.png" title="Facebook" /></a>
+           <a href="javascript:void(0);" class="share_twitter"><img alt="share on twitter" src="/images/icons/twitter.png" title="Twitter" /></a>
+           <a href="javascript:void(0);" class="share_linkedin"><img alt="share on linkedin" src="/images/icons/linkedin.png" title="LinkedIn" /></a>
+           <!--<a href="javascript:void(0);" class="share_googleplus"><img src="/images/icons/google.png" title="Google Plus" /></a>-->
+         </span>
+    </div>
+    
+	</div> <!-- End Subdomain Title Div -->
+	<div id="subdomain-title-border"></div>
+
+<!-- SUBDOMAIN TITLE BOTTOM END -->
+
+<!-- 2COL LAYOUT COL1 BEGIN -->	
+<div class="clearfloat" id="startcontent"></div>
+<table id="main-content-table">
+	<tr>
+		<td id="secondary-nav-td">
+			<div id="secondary-nav">
+
+<!-- 2COL LAYOUT COL1 END -->
+
+<!-- SECONDARY NAV BEGIN -->		
+<div class="secondary-nav">
+		<ul class="level1">
+			<li class="menuhead"><a href="/lau/home.htm">BROWSE LAU</a></li>
+			<li><a href="/lau/home.htm">LAU HOME</a></li>
+			<li><a href="/lau/lauov.htm">LAU OVERVIEW</a></li>
+			<li><a href="/lau/news.htm">LAU NEWS RELEASES</a></li>
+			<li><a href="/lau/data.htm">LAU DATABASES</a></li>
+			<li><a href="/lau/tables.htm">LAU TABLES & MAPS</a></li>
+			<li><a href="/lau/publications.htm">LAU DOCUMENTATION</a></li>
+			<li><a href="/lau/laufaq.htm">LAU FAQs</a></li>
+			<li><a href="/lau/laucont.htm">CONTACT LAU</a></li>
+		</ul>
+	</div>
+	<form action="/search/query" id="search-secondary-nav-form" method="get">
+		<p>
+			<label for="search-secondary-nav-query">SEARCH LAU</label>
+			<input name="prefix" type="hidden" id="search-secondary-nav-category" value="http://www.bls.gov/lau">
+			<input name="query" type="text" id="search-secondary-nav-query">
+			<input type="submit" name="submit" id="search-secondary-nav-submit" value="Go">
+		</p>
+	</form>
+
+
+<div class="secondary-nav">
+	<ul class="level1">
+		<li class="menuhead"><a href="/ces/home.htm">LAU TOPICS</a></li>
+		<li class="submenu"><a href="#">JOBSEEKERS</a>
+			<ul class="level2">
+					<li><a href="/lau/peoplebox.htm#Q07">INFORMATION ON APPLYING FOR UNEMPLOYMENT BENEFITS</a></li>
+			</ul></li>
+		<li class="submenu"><a href="#">PUBLIC POLICYMAKERS</a>
+			<ul class="level2">
+					<li><a href="/lau/lauadminuses.pdf">ADMINISTRATIVE USES OF LOCAL AREA UNEMPLOYMENT STATISTICS</a></li>
+			</ul></li>
+		<li class="submenu"><a href="#">RESEARCHERS</a>
+			<ul class="level2">
+					<li><a href="/lau/laumthd.htm">SUBNATIONAL LABOR FORCE ESTIMATION METHODOLOGY</a></li>
+			</ul></li>
+		<li class="submenu"><a href="#">LABOR FORCE DATA</a>
+			<ul class="level2">
+					<li><a href="/lau/lauavail.htm">DATA AVAILABILITY</a></li>
+			</ul></li>
+		<li class="submenu"><a href="#">GEOGRAPHY</a>
+			<ul class="level2">
+					<li><a href="/lau/laugeo.htm">GEOGRAPHIC CONCEPTS</a></li>
+			</ul></li>
+		<li class="submenu"><a href="#">METHODOLOGY</a>
+			<ul class="level2">
+					<li><a href="/lau/laumthd.htm">ESTIMATION METHODOLOGY</a></li>
+			</ul></li>
+	</ul>
+</div>
+<!-- SECONDARY NAV END -->
+
+<!-- 2COL LAYOUT COL2 BEGIN -->
+			</div>
+		</td>
+		<td id="main-content-td" class="main-content">
+			<div id="bodytext" class="verdana md">
+			
+
+<!-- 2COL LAYOUT COL2 END -->
+
+<!--no_index_end-->
+<!-- MAIN CONTENT BEGIN -->
+
+<!-- ****************************************** End HEADER ************************************************** -->
+
+<!--no_index_end-->
+<!-- MAIN CONTENT BEGIN -->
+
+<!-- MAIN CONTENT BEGIN -->
+
+<!-- INSERT CONTENT HERE-->
+
+<h1>Smoothed Seasonally Adjusted Metropolitan Area Estimates</h1>
+
+<p>Effective with the release of metropolitan area data for May 2011, the Local Area Unemployment Statistics (LAUS) program began
+to publish smoothed seasonally adjusted civilian labor force and unemployment estimates for all metropolitan areas and metropolitan
+divisions. These data are updated via the downloadable files below on the day of each
+<a href="/news.release/metro.nr0.htm">Metropolitan Area Employment and Unemployment</a> news release.
+(See <a href="/lau/lausched.htm">www.bls.gov/lau/lausched.htm</a> for a schedule of upcoming release dates.) The files contain
+estimates from January 2000 forward. See the <a href="/lau/metrossaqa.htm">Questions and Answers</a> document for more information.</p>
+
+<p>On April 19, 2013, data for metropolitan areas and metropolitan divisions in the U.S. and Puerto Rico from January 2008 through February 2013 were updated based on revised historical not
+seasonally adjusted estimates and re-fitting of seasonal adjustment models. In addition, data for metropolitan areas in Puerto Rico were updated from January 2000 through December 2007 to
+reflect historical revisions to the underlying not seasonally adjusted estimates resulting from the implementation of new statewide population controls on March 1.</p>
+
+<a name="ssamadata"></a>
+<h3>Downloadable Data Files</h3>
+<ul>
+
+	<li>Table 1. Civilian labor force and unemployment by metropolitan area, seasonally adjusted (<a href="/lau/ssamatab1.txt">TXT</a> 9.6M) (<a href="/lau/ssamatab1.zip">ZIP</a> 2.6M)</li>
+	<li>Table 2. Civilian labor force and unemployment by selected metropolitan area and metropolitan division, seasonally adjusted (<a href="/lau/ssamatab2.txt">TXT</a> 1.2M) (<a href="/lau/ssamatab2.zip">ZIP</a> 310K)</li>
+
+</ul>
+
+<p>&nbsp;</p>
+	<p class="update"><strong>Last Modified Date: </strong>April 19, 2013</p>
+<!-- ********************************************TRAILER FILES******************************************** -->
+	<!-- TwoColFoot Begin -->
+
+<!--no_index_start-->
+<!-- 2COL LAYOUT COL3 BEGIN -->
+			<div class="social-media"><div>Recommend this page using:</div>
+	<div><a href="javascript:void(0);" class="share_facebook"><img alt="share on facebook" src="/images/icons/facebook.png"></a><span><a href="javascript:void(0);" class="share_facebook">Facebook</a></span></div>
+	<div><a href="javascript:void(0);" class="share_twitter"><img alt="share on twitter" src="/images/icons/twitter.png"></a><span><a href="javascript:void(0);" class="share_twitter">Twitter</a></span></div>
+	<div><a href="javascript:void(0);" class="share_linkedin"><img alt="share on linkedin" src="/images/icons/linkedin.png"></a><span><a href="javascript:void(0);" class="share_linkedin">LinkedIn</a></span></div>
+	<!--<div><a href="javascript:void(0);" class="share_googleplus"><img src="/images/icons/google.png"></a><span><a href="javascript:void(0);" class="share_googleplus">Google+</a></span></div>-->
+</div>			
+			</div>
+		</td>
+	</tr>
+</table>
+
+<!-- 2COL LAYOUT COL3 END -->
+
+<!-- QUICK LINKS BEGIN -->
+			<div class="clearfloat"></div>
+			<div id="quicklinks-wrapper">
+				<div id="quicklinks">
+						<ul><li><h4>tools</h4></li>
+							<li><a href="/eag/">Areas at a Glance </a></li>
+							<li><a href="/iag/">Industries at a Glance </a></li>
+							<li><a href="/bls/newsrels.htm">Economic Releases</a></li>
+							<li><a href="/data/">Databases &amp; Tables</a></li>
+							<li><a href="/map/MapToolServlet?survey=la">Maps</a></li>
+						</ul>
+						<ul><li><h4>calculators</h4></li>
+							<li><a href="/data/inflation_calculator.htm">Inflation</a></li>
+							<li><a href="/location_quotient/">Location Quotient</a> </li>
+							<li><a href="/iirc/">Injury And Illness</a></li>
+						</ul>
+						<ul><li><h4>help</h4></li>
+							<li><a href="/help/">Help &amp; Tutorials</a></li>
+							<li><a href="/dolfaq/blsfaqtoc.htm">FAQs</a></li>
+							<li><a href="/bls/glossary.htm">Glossary</a></li>
+							<li><a href="/bls/infohome.htm">About BLS</a></li>
+							<li><a href="/bls/contact.htm">Contact Us</a></li>
+						</ul>
+						<ul><li><h4>info</h4></li>
+							<li><a href="/bls/whatsnew.htm">What's New</a></li>
+							<li><a href="/jobs/">Careers @ BLS</a></li>
+							<li><a href="http://www.dol.gov/dol/findit.htm">Find It! DOL</a></li>
+							<li><a href="https://subscriptions.bls.gov/accounts/USDOLBLS/subscriber/new">Join our Mailing Lists</a></li>
+							<li><a href="/bls/linksite.htm">Linking &amp; Copyright Info</a></li>
+						</ul>
+                       				<ul style="border-right: none;"><li><h4>resources</h4></li>
+                   				   	<li><a href="http://www.oig.dol.gov/">Inspector General (OIG)</a></li>
+							<li><a href="/bls/bls_budget_and_performance.htm">Budget and Performance</a></li>
+                      					<li><a href="/bls/no_fear_act.htm">No Fear Act</a></li>
+                      					<li><a href="http://www.usa.gov/">USA.gov</a></li>
+                    				        <li><a href="http://www.benefits.gov/">Benefits.gov </a></li>
+                     					<li><a href="https://www.disability.gov/">Disability.gov</a></li>
+						</ul>
+				</div>
+				<div class="clearfloat"></div>
+			</div>
+
+
+
+<!-- QUICK LINKS END -->
+
+<!-- WRAPPER BOTTOM BEGIN -->
+	
+		</div><!-- close id="wrapper-outer" -->
+	</div><!-- close id="wrapper" -->
+</div><!-- close id="container" -->
+<!-- WRAPPER BOTTOM END -->
+
+<!-- FOOTER LEFT BEGIN -->
+<div id="footer-wrapper">
+	<div id="footer-links-wrapper">
+		<div id="footer-links">
+        		<script src="/javascripts/federated-analytics.js" type="text/javascript"></script>
+			<p><a href="/bls/blsfoia.htm">Freedom of Information Act</a> &nbsp;|&nbsp; <a href="/bls/pss.htm">Privacy &amp; Security Statement</a> &nbsp;|&nbsp; <a href="/bls/disclaimer.htm">Disclaimers</a> &nbsp;|&nbsp; 
+			<a href="/bls/customer_survey.htm">Customer Survey</a> &nbsp;|&nbsp; <a href="/bls/website-policies.htm">Important Web Site Notices</a></p>
+		</div>
+	</div>
+	<div id="footer-info-wrapper">
+		<div id="footer-info"><p>
+
+<!-- FOOTER LEFT END -->
+
+<span id="footer-address">U.S. Bureau of Labor Statistics  | Local Area Unemployment Statistics Information and Analysis, PSB Suite 4675, 2 Massachusetts Avenue, NE Washington, DC 20212-0001</span> 	
+
+
+<!-- FOOTER CENTER BEGIN -->
+		</p><p>
+
+
+<!-- FOOTER CENTER END -->
+
+<span id="footer-contact"><a href="/lau/home.htm">www.bls.gov/LAU</a> | Telephone: 1-202-691-6392 | <a href="http://data.bls.gov/cgi-bin/forms/lau/?/lau/metrossa.htm">Contact LAUS</a></span>
+
+
+<!-- FOOTER RIGHT BEGIN -->
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- FOOTER RIGHT END -->
+<!--no_index_end-->
+	
+<!-- ***************************************************************************************************** -->
+</body>
+</html>
