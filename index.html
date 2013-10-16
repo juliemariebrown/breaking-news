@@ -1,0 +1,58 @@
+//Assign a variable to your data set
+data <- read.csv("ssamatab1.csv")
+
+//Assign a variable to the California subset (or whatever subset you're looking at)
+ca <- subset(data, data$ST.FIPS.Code == 06)
+
+//aggregate data (whatever that means...), in this case California's total labor by year
+ca_workforce_by_year <- aggregate(ca$Civilian.Labor.Force, list(ca$Year), sum)
+
+names(ca_workforce_by_year)[1] <- "Year"
+names(ca_workforce_by_year)[2] <- "ca_total_workforce"
+
+//aggregate data again, in this case California's total unemployment by year
+ca_unemployment_by_year <- aggregate(ca$Unemployment, list(ca$Year), sum)
+
+//rename the columns
+names(ca_unemployment_by_year)[1] <- "Year"
+names(ca_unemployment_by_year)[2] <-"ca_total_unemployment"
+
+//now merge those data sets you just aggregated by their common variable, which in this case is the year. And assign it the variable, California Unemployment Rate
+ca_unemployment_rate <- merge(ca_workforce_by_year, ca_unemployment_by_year, by="Year")
+
+//Now you can find the average, by dividing the unemployment rate by the total labor force.
+ca_unemployment_rate$rate <- ca_unemployment_rate$ca_total_workforce/ca_unemployment_rate$Year
+
+//Question - This worked when I did it, but I'm not sure why we divided workforce by year. Shouldn't we have divided ca_unemployment_by_year by ca_workforce_by_year?
+
+//Plot your graph
+plot(ca_unemployment_rate$rate, ca_unemployment_rate$Year, type = "l", ylim=c(0,max(ca_unemployment_rate$rate)))
+
+//Now you want to compare your subset against the entire data set to give it context. So do the same thing as above, but for the entire data set.
+
+//First, aggregate the data to find the nation's total labor force
+national_labor <- aggregate(data$Civilian.Labor.Force, list(data$Year), sum)
+
+//Assign names to columns
+names(national_labor)[1] <- "Year"
+names(national_labor)[2] <- "Total_National_Labor"
+
+//Aggregate the data to find the nation's total unemployment
+national_unemployment <- aggregate(data$Unemployment, list(data$Year), sum)
+names(national_unemployment)[2] <- "Total_National_Unemployment"
+names(national_unemployment)[1] <- "Year"
+
+//Merge the two national data that we just aggregated by their common variable, which is Year
+national_unemployment_rate <- merge(national_labor, national_unemployment, by="Year")
+
+//And to find the rate as it changes by year, divide Unemployment by labor
+national_unemployment_rate$rate <- national_unemployment_rate$Total_National_Unemployment/national_unemployment_rate$Total_National_Labor
+
+//Now you can plot the national unemployment rate
+plot(national_unemployment_rate$rate)
+
+//And now you can plot the California rate against the National rate
+plot(ca_unemployment_rate$Year, ca_unemployment_rate$rate, type="l", ylim=c(0,max(ca_unemployment_rate$rate)), col="red")
+lines(national_unemployment_rate$Year, national_unemployment_rate$rate, type="l",col="blue")
+
+
